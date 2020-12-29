@@ -36,20 +36,20 @@ namespace TransformerToWords
 
             for (int i = 0; i < source.Length; i++)
             {
-                if (this.CheckNumber(source[i], out var value))
+                if (CheckNumber(source[i], out var value))
                 {
                     str.Add(value);
                 }
                 else
                 {
-                    str.Add(this.Trans(source[i]));
+                    str.Add(Trans(source[i]));
                 }
             }
 
             return str.ToArray();
         }
 
-        public bool CheckNumber(double number, out string value)
+        public static bool CheckNumber(double number, out string value)
         {
             switch (number)
             {
@@ -71,7 +71,7 @@ namespace TransformerToWords
             }
         }
 
-        public string Trans(double number)
+        public static string Trans(double number)
         {
             StringBuilder sb = new StringBuilder();
             var num = number.ToString(CultureInfo.CurrentCulture);
